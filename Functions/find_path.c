@@ -28,14 +28,14 @@ char *find_path(char *cmd, char **env)
 
     if (path_env == NULL || cmd == NULL || cmd[0] == '\0')
     {
-        return NULL;
+        return (NULL);
     }
 
     path = strdup(path_env);
     if (path == NULL)
     {
         perror("Error duplicating PATH");
-        return NULL;
+        return (NULL);
     }
 
     token = strtok(path, ":");
@@ -46,7 +46,7 @@ char *find_path(char *cmd, char **env)
         {
             free(path);
             perror("Error allocating space for full path");
-            return NULL;
+            return (NULL);
         }
 
         sprintf(full_path, "%s/%s", token, cmd);
@@ -54,7 +54,7 @@ char *find_path(char *cmd, char **env)
         if (access(full_path, X_OK) == 0)
         {
             free(path);
-            return full_path;
+            return (full_path);
             }
 
         free(full_path);

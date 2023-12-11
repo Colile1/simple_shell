@@ -12,8 +12,6 @@ int builtin(char *cmd, char **env, int *status)
 {
     if (_strcmp(cmd, "exit") == 0)
     {
-        // NOTE: This assumes some integer status code is available.
-        // Replace 'last_status' with the actual variable tracking status codes.
         builtin_exit(*status);
         return (*status);
     }
@@ -24,10 +22,9 @@ int builtin(char *cmd, char **env, int *status)
     }
     else
     {
-        // If the command is not a built-in, return a special code to indicate this
-        // You may define a constant for this, like `#define NOT_BUILTIN -1`
+        /*If the command is not a built-in, return a special code to indicate this
+        i.e. define a constant for this, like `#define NOT_BUILTIN -1`*/
         return (NOT_BUILTIN);
     }
 }
- 
  

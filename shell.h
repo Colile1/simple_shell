@@ -15,6 +15,7 @@
 /* Function prototypes */
 int _putchar(char c);
 int _puts(char *str);
+int _strcmp(char *s1, char *s2);
 char *_strdup(const char *str);
 size_t _strlen(const char *s);
 char *_strtok(char *str, const char *delim);

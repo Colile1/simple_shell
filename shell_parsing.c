@@ -34,7 +34,7 @@ int shell_parsing(char *input, char **env)
     args = parse(input, env);
     if (args == NULL)
     {
-        free(tokens); /* Free tokens if parsing fails */
+        free(tokens);
         perror("Parsing error");
         return (-1);
     }
@@ -49,7 +49,6 @@ int shell_parsing(char *input, char **env)
     }
     if (pid == 0)
     {
-        /* Child process */
         if (execve(args[0], args, env) == -1)
         {
             perror("Execution error");
@@ -58,13 +57,10 @@ int shell_parsing(char *input, char **env)
     }
     else
     {
-        /* Parent process */
         waitpid(pid, &status, 0);
         free(tokens);
         free(args);
         return (WEXITSTATUS(status));
     }
-    /* This part is unreachable, but added for clarity */
     return (-1);
 }
-

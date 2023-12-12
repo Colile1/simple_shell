@@ -1,9 +1,32 @@
-in betty style write code for the shell_parsing.c 
+in betty style write code for the shell.c 
 use the already written functions:
-char **tokenize(char *input);
-char **parse(char *input, char **env);
 
-List of allowed functions and system calls
+int _putchar(char c);
+int _puts(char *str);
+int _strcmp(char *s1, char *s2);
+char *_strdup(const char *str);
+size_t _strlen(const char *s);
+char *_strtok(char *str, const char *delim);
+int builtin_env(char **env);
+void builtin_exit(int status);
+int execute(char **args, char **env);
+char *find_path(char *cmd, char **env);
+char **parse(char *input, char **env);
+void print_prompt(void);
+char *read_input(void);
+int run_command(char *cmd, char **args, char **env);
+char **tokenize(char *input);
+
+int builtin(char *cmd, char **env, int *status);
+int shell_execute(char *input, char **env);
+char *shell_input(void);
+int shell_parsing(char *input, char **env);
+
+/*main function*/
+int main(int argc, char **argv, char **envp);
+
+
+List of other allowed functions and system calls
 access (man 2 access)
 chdir (man 2 chdir)
 close (man 2 close)

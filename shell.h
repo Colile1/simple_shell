@@ -29,4 +29,19 @@ char *read_input(void);
 int run_command(char *cmd, char **args, char **env);
 char **tokenize(char *input);
 
+
+
+/*file functions*/
+int builtin(char *cmd, char **env, int *status);
+int shell_execute(char *input, char **env);
+char *shell_input(void);
+int shell_parsing(char *input, char **env);
+
+/*main function*/
+int main(int argc, char **argv, char **envp);
+
+/*utils functions*/
+char *strdup_wrapper(const char *str);
+char *strtok_wrapper(char *str, const char *delim);
+size_t strlen_wrapper(const char *s);
 #endif

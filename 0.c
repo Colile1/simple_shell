@@ -1,8 +1,7 @@
-in betty style write code for the shell_input.c 
+in betty style write code for the shell_parsing.c 
 use the already written functions:
-char *read_input(void);
-void print_prompt(void);
-
+char **tokenize(char *input);
+char **parse(char *input, char **env);
 
 List of allowed functions and system calls
 access (man 2 access)

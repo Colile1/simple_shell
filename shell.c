@@ -17,12 +17,16 @@ int status = 1;
 environment_init(env);
 signal(SIGINT, handle_signal);
 
-do {
+while (status)
+{
 prompt();
 line = read_line();
 if (line == NULL)
+{
 handle_end_of_file(line);
-
+}
+else
+{
 args = split_line(line);
 if (args == NULL)
 {
@@ -30,16 +34,12 @@ free(line);
 continue;
 }
 
-if (is_builtin(args[0]))
-status = handle_builtin(args);
-else
-status = launch(args);
+status = execute(args);
 
 free_args(args);
 free(line);
 }
-while (status);
+}
 
 return (EXIT_SUCCESS);
 }
-

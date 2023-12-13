@@ -22,5 +22,3 @@ int handle_builtin(char **args)
 
 	return (0);
 }
-
-]

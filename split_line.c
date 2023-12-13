@@ -28,7 +28,7 @@ if (position >= bufsize)
 {
 bufsize *= 2;
 tokens_backup = tokens;
-tokens = realloc(tokens, bufsize * sizeof(char *));
+tokens = realloc(tokens, bufsize *sizeof(char *));
 if (!tokens)
 {
 free(tokens_backup);

@@ -10,6 +10,8 @@
 #include <string.h>
 #include <signal.h>
 
+extern char **environ;
+
 /* Function Prototypes for signal handling and prompt */
 void handle_signal(int sig);
 void prompt(void);

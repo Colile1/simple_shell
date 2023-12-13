@@ -7,11 +7,11 @@
  *
  * Return: 1 on success, or a negative value on error
  */
+
 int builtin_cd(char **args)
 {
 char *new_dir;
 char cwd[1024];
-
 if (args[1] == NULL || strcmp(args[1], "~") == 0)
 {
 new_dir = getenv("HOME");
@@ -35,24 +35,20 @@ else
 {
 new_dir = args[1];
 }
-
 if (chdir(new_dir) != 0)
 {
 perror("builtin_cd: chdir");
 return (-1);
 }
-
 if (getcwd(cwd, sizeof(cwd)) == NULL)
 {
 perror("builtin_cd: getcwd");
 return (-1);
 }
-
 if (set_env_var("PWD", cwd) != 0)
 {
 perror("builtin_cd: set_env_var PWD");
 return (-1);
 }
-
 return (1);
 }

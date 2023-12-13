@@ -2,7 +2,8 @@
 
 /**
  * builtin_exit - exits the shell
- * @args: array of arguments, the first is "exit" and the next can be the status
+ * @args: array of arguments, the first is "exit" and 
+ * the next can be the status
  *
  * Return: status value if specified, otherwise success (0)
  */

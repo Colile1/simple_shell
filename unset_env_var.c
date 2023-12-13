@@ -8,34 +8,34 @@
  */
 int unset_env_var(char *name)
 {
-	extern char **environ;
-	char **env, **new_env;
-	size_t name_len;
-	int i = 0, j = 0;
+char **env, **new_env;
+size_t name_len;
+int i = 0, j = 0;
 
-	if (!name)
-		return (-1);
+if (!name)
+return (-1);
 
-	name_len = _strlen(name);
-	env = environ;
+name_len = _strlen(name);
+env = environ;
 
-	while (env[i])
-		i++;
-	new_env = malloc(sizeof(char *) * i);
-	if (!new_env)
-		return (-1);
+while (env[i])
+i++;
+new_env = malloc(sizeof(char *) * i);
+if (!new_env)
+return (-1);
 
-	for (i = 0; environ[i]; i++)
-	{
-		if (_strncmp(environ[i], name, name_len) != 0 || environ[i][name_len] != '=')
-		{
-			new_env[j++] = environ[i];
-		}
-	}
-	new_env[j] = NULL;
+for (i = 0; environ[i]; i++)
+{
+if (_strncmp(environ[i],
+name, name_len) != 0 || environ[i][name_len] != '=')
+{
+new_env[j++] = environ[i];
+}
+}
+new_env[j] = NULL;
 
-	environ = new_env;
-	return (0);
+environ = new_env;
+return (0);
 }
 
 /**
@@ -46,11 +46,11 @@ int unset_env_var(char *name)
  */
 static int _strlen(char *s)
 {
-	int len = 0;
+int len = 0;
 
-	while (s[len])
-		len++;
-	return (len);
+while (s[len])
+len++;
+return (len);
 }
 
 /**
@@ -63,12 +63,12 @@ static int _strlen(char *s)
  */
 static int _strncmp(char *s1, char *s2, size_t n)
 {
-	size_t i;
+size_t i;
 
-	for (i = 0; i < n && s1[i] && s2[i]; i++)
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-	}
-	return (0);
+for (i = 0; i < n && s1[i] && s2[i]; i++)
+{
+if (s1[i] != s2[i])
+return (s1[i] - s2[i]);
+}
+return (0);
 }

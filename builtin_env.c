@@ -1,5 +1,7 @@
 #include "shell.h"
 
+static int print_environment(void);
+
 /**
  * builtin_env - Prints the current environment
  * @args: List of arguments. Not used in this function.
@@ -8,10 +10,18 @@
  */
 int builtin_env(char **args)
 {
-	extern char **environ;
-	int i;
-
 	(void)args;
+	return (print_environment());
+}
+
+/**
+ * print_environment - Helper function to print the current environment
+ *
+ * Return: Always returns 1.
+ */
+static int print_environment(void)
+{
+	int i;
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
@@ -37,3 +47,6 @@ int _strlen(char *s)
 
 	return (count);
 }
+
+// Moved the `extern char **environ;` declaration to the header file to avoid extern in .c files.
+

@@ -26,7 +26,6 @@ char *builtin_str[] = {
 NULL
 };
 int i;
-
 if (args[1] == NULL)
 {
 for (i = 0; builtin_str[i] != NULL; i++)

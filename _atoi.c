@@ -34,6 +34,5 @@ num = num * 10 + (*str - '0');
 str++;
 }
 
-return (num * sign);
+return (num *sign);
 }
-

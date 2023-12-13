@@ -1,26 +1,30 @@
-#include "shell.h"
+#include shell.h
 
 /**
  * execute - Executes a command
- * @args: Null-terminated array of arguments
+ * @args: Array of argument strings
  *
- * Return: 1 if the shell should continue running, 0 if it should terminate
+ * Return: Status of execution
  */
 int execute(char **args)
 {
-    int status;
+	int status = 1;
 
-    if (args == NULL || args[0] == NULL)
-    {
-        /* An empty command was entered */
-        return 1;
-    }
-    if (is_builtin(args[0]))
-    {
-        return handle_builtin(args);
-    }
+	if (args[0] == NULL)
+	{
+		/* An empty command was entered */
+		return 1;
+	}
+	if (is_builtin(args[0]))
+	{
+		/* If the command is a built-in, handle it */
+		status = handle_builtin(args);
+	}
+	else
+	{
+		/* Otherwise, launch the program */
+		status = launch(args);
+	}
 
-    status = launch(args);
-    return status;
+	return status;
 }
-

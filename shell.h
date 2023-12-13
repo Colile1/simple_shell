@@ -39,4 +39,4 @@ void handle_end_of_file(char *line);
 char *get_command_path(char *command);
 void free_args(char **args);
 
-#endif /* SHELL_H */
+#endif

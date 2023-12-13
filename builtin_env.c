@@ -11,7 +11,7 @@ int builtin_env(char **args)
 	extern char **environ;
 	int i;
 
-	(void)args; /* args not used */
+	(void)args;
 
 	for (i = 0; environ[i] != NULL; i++)
 	{

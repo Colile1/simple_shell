@@ -10,10 +10,10 @@ int builtin_exit(char **args)
 {
 	int status = 0;
 
-	if (args[1]) /* if status is provided */
+	if (args[1])
 	{
 		status = _atoi(args[1]);
-		if (status == -1) /* if conversion failed */
+		if (status == -1)
 		{
 			perror("exit: Illegal number");
 			return (2);

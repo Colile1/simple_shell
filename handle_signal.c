@@ -7,9 +7,9 @@
 
 void handle_signal(int sig)
 {
-    if (sig == SIGINT)
-    {
-        write(STDOUT_FILENO, "\n$ ", 3);
-        fflush(stdout);
-    }
+if (sig == SIGINT)
+{
+write(STDOUT_FILENO, "\n$ ", 3);
+fflush(stdout);
+}
 }

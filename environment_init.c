@@ -6,5 +6,5 @@
  */
 void environment_init(char **env)
 {
-    /* Implementation of the environment initialization */
+
 }

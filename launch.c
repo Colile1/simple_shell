@@ -14,7 +14,6 @@ int launch(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		/* Child process */
 		if (execve(args[0], args, environ) == -1)
 		{
 			perror("Error");
@@ -23,13 +22,11 @@ int launch(char **args)
 	}
 	else if (pid < 0)
 	{
-		/* Error forking */
 		perror("Error");
 		return (-1);
 	}
 	else
 	{
-		/* Parent process */
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));

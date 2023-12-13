@@ -6,10 +6,10 @@
  */
 void handle_end_of_file(char *line)
 {
-    if (line == NULL)
-    {
-        if (isatty(STDIN_FILENO))
-            write(STDOUT_FILENO, "\n", 1);
-        exit(EXIT_SUCCESS);
-    }
+if (line == NULL)
+{
+if (isatty(STDIN_FILENO))
+write(STDOUT_FILENO, "\n", 1);
+exit(EXIT_SUCCESS);
+}
 }

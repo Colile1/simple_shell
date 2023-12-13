@@ -45,4 +45,3 @@ char *get_command_path(char *command)
 	free(path_copy);
 	return (NULL);
 }
-

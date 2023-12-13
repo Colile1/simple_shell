@@ -19,14 +19,12 @@ int unset_env_var(char *name)
 	name_len = _strlen(name);
 	env = environ;
 
-	/* Count the number of remaining environment variables */
 	while (env[i])
 		i++;
 	new_env = malloc(sizeof(char *) * i);
 	if (!new_env)
 		return (-1);
 
-	/* Copy all environment variables except the one to be removed */
 	for (i = 0; environ[i]; i++)
 	{
 		if (_strncmp(environ[i], name, name_len) != 0 || environ[i][name_len] != '=')
@@ -36,7 +34,6 @@ int unset_env_var(char *name)
 	}
 	new_env[j] = NULL;
 
-	/* Set the new environment */
 	environ = new_env;
 	return (0);
 }

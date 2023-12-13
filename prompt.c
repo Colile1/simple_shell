@@ -5,6 +5,6 @@
  */
 void prompt(void)
 {
-    if (isatty(STDIN_FILENO))
-        write(STDOUT_FILENO, "($) ", 4);
+if (isatty(STDIN_FILENO))
+write(STDOUT_FILENO, "($) ", 4);
 }

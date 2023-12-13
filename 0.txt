@@ -3,7 +3,7 @@ in betty style write code for that answers the following questions and fulfills 
 
 
 
-List of other allowed functions and system calls
+List of allowed functions and system calls
 access (man 2 access)
 chdir (man 2 chdir)
 close (man 2 close)
@@ -53,7 +53,10 @@ You should have an AUTHORS file at the root of your repository, listing all indi
 
 
 Requirements
-Write a UNIX command line interpreter.
+0. the code must follow betty style.
+the header file should be named shell.h. 
+
+1. Write a UNIX command line interpreter.
 
 Usage: simple_shell
 Your Shell should:
@@ -155,3 +158,115 @@ The file contains all the commands that your shell should run before exiting
 The file should contain one command per line
 In this mode, the shell should not print a prompt and should not read from stdin
 
+
+Compilation
+Your shell will be compiled this way:
+
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+Testing
+Your shell should work like this in interactive mode:
+
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+But also in non-interactive mode:
+
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+
+
+List of functions files and functions to be written to answer the questions in accordance to the requirements.
+
+File: shell.h
+Functions:
+- void handle_signal(int sig);
+- void prompt(void);
+- char *read_line(void);
+- char **split_line(char *line);
+- int execute(char **args);
+- int launch(char **args);
+- int builtin_cd(char **args);
+- int builtin_help(char **args);
+- int builtin_exit(char **args);
+- int builtin_env(char **args);
+- int is_builtin(char *command);
+- int handle_builtin(char **args);
+- void free_args(char **args);
+- char *get_command_path(char *command);
+- void environment_init(char **env);
+- int set_env_var(char *name, char *value);
+- int unset_env_var(char *name);
+- int _atoi(char *str);
+- void handle_end_of_file(char *line);
+
+File: main.c
+Functions:
+- int main(int argc, char **argv, char **env);
+
+File: prompt.c
+Functions:
+- void prompt(void);
+
+File: read_line.c
+Functions:
+- char *read_line(void);
+
+File: split_line.c
+Functions:
+- char **split_line(char *line);
+
+File: execute.c
+Functions:
+- int execute(char **args);
+
+File: launch.c
+Functions:
+- int launch(char **args);
+
+File: builtins.c
+Functions:
+- int builtin_cd(char **args);
+- int builtin_help(char **args);
+- int builtin_exit(char **args);
+- int builtin_env(char **args);
+- int is_builtin(char *command);
+- int handle_builtin(char **args);
+
+File: env_functions.c
+Functions:
+- void environment_init(char **env);
+- int set_env_var(char *name, char *value);
+- int unset_env_var(char *name);
+
+File: path_functions.c
+Functions:
+- char *get_command_path(char *command);
+
+File: utility_functions.c
+Functions:
+- int _atoi(char *str);
+- void handle_end_of_file(char *line);
+
+File: signal_handler.c
+Functions:
+- void handle_signal(int sig);
+
+File: AUTHORS
+No functions, but a formatted list of contributors.
+
+File: README.md
+No functions, but contains project description.
+
+Note: This list assumes that each file contains the functions related to its primary responsibility, and that the main.c file contains the entry point for the program.

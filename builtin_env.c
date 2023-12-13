@@ -47,6 +47,3 @@ int _strlen(char *s)
 
 	return (count);
 }
-
-// Moved the `extern char **environ;` declaration to the header file to avoid extern in .c files.
-

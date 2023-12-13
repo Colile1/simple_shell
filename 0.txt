@@ -1,4 +1,5 @@
-in betty style write code for that answers the following questions and fulfills the requirements.
+in betty style write code for that answers 
+the following questions and fulfills the requirements.
 
 
 
@@ -191,77 +192,77 @@ List of functions files and functions to be written to answer the questions in a
 
 File: shell.h
 Functions:
-- void handle_signal(int sig);
-- void prompt(void);
-- char *read_line(void);
-- char **split_line(char *line);
-- int execute(char **args);
-- int launch(char **args);
-- int builtin_cd(char **args);
-- int builtin_help(char **args);
-- int builtin_exit(char **args);
-- int builtin_env(char **args);
-- int is_builtin(char *command);
-- int handle_builtin(char **args);
-- void free_args(char **args);
-- char *get_command_path(char *command);
-- void environment_init(char **env);
-- int set_env_var(char *name, char *value);
-- int unset_env_var(char *name);
-- int _atoi(char *str);
-- void handle_end_of_file(char *line);
+ void handle_signal(int sig);
+ void prompt(void);
+ char *read_line(void);
+ char **split_line(char *line);
+ int execute(char **args);
+ int launch(char **args);
+ int builtin_cd(char **args);
+ int builtin_help(char **args);
+ int builtin_exit(char **args);
+ int builtin_env(char **args);
+ int is_builtin(char *command);
+ int handle_builtin(char **args);
+ void free_args(char **args);
+ char *get_command_path(char *command);
+ void environment_init(char **env);
+ int set_env_var(char *name, char *value);
+ int unset_env_var(char *name);
+ int _atoi(char *str);
+ void handle_end_of_file(char *line);
 
 File: main.c
 Functions:
-- int main(int argc, char **argv, char **env);
+ int main(int argc, char **argv, char **env);
 
 File: prompt.c
 Functions:
-- void prompt(void);
+ void prompt(void);
 
 File: read_line.c
 Functions:
-- char *read_line(void);
+ char *read_line(void);
 
 File: split_line.c
 Functions:
-- char **split_line(char *line);
+ char **split_line(char *line);
 
 File: execute.c
 Functions:
-- int execute(char **args);
+ int execute(char **args);
 
 File: launch.c
 Functions:
-- int launch(char **args);
+ int launch(char **args);
 
 File: builtins.c
 Functions:
-- int builtin_cd(char **args);
-- int builtin_help(char **args);
-- int builtin_exit(char **args);
-- int builtin_env(char **args);
-- int is_builtin(char *command);
-- int handle_builtin(char **args);
+ int builtin_cd(char **args);
+ int builtin_help(char **args);
+ int builtin_exit(char **args);
+ int builtin_env(char **args);
+ int is_builtin(char *command);
+ int handle_builtin(char **args);
 
 File: env_functions.c
 Functions:
-- void environment_init(char **env);
-- int set_env_var(char *name, char *value);
-- int unset_env_var(char *name);
+ void environment_init(char **env);
+ int set_env_var(char *name, char *value);
+ int unset_env_var(char *name);
 
 File: path_functions.c
 Functions:
-- char *get_command_path(char *command);
+ char *get_command_path(char *command);
 
 File: utility_functions.c
 Functions:
-- int _atoi(char *str);
-- void handle_end_of_file(char *line);
+ int _atoi(char *str);
+ void handle_end_of_file(char *line);
 
 File: signal_handler.c
 Functions:
-- void handle_signal(int sig);
+ void handle_signal(int sig);
 
 File: AUTHORS
 No functions, but a formatted list of contributors.

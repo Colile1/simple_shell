@@ -1,44 +1,49 @@
 #include "shell.h"
 
 /**
- * split_line - Splits a line into tokens
- * @line: The line to be tokenized
+ * split_line - Splits a command line into tokens.
+ * @line: The command line input.
  *
- * Return: NULL-terminated array of tokens
+ * Return: Null-terminated array of tokens.
  */
 char **split_line(char *line)
 {
-    int bufsize = 64, position = 0;
-    char **tokens = malloc(bufsize * sizeof(char *));
-    char *token, **tokens_backup;
+	char **tokens;
+	size_t bufsize = 64, position = 0;
+	char *token, **tokens_backup;
 
-    if (!tokens)
-    {
-        fprintf(stderr, "split_line: allocation error\n");
-        exit(EXIT_FAILURE);
-    }
+	if (!line)
+		exit(EXIT_FAILURE);
 
-    token = strtok(line, " \t\r\n\a");
-    while (token != NULL)
-    {
-        tokens[position] = token;
-        position++;
+	tokens = malloc(bufsize * sizeof(char *));
+	if (!tokens)
+	{
+		perror("allocation error");
+		exit(EXIT_FAILURE);
+	}
 
-        if (position >= bufsize)
-        {
-            bufsize *= 2;
-            tokens_backup = tokens;
-            tokens = realloc(tokens, bufsize * sizeof(char *));
-            if (!tokens)
-            {
-                free(tokens_backup);
-                fprintf(stderr, "split_line: allocation error\n");
-                exit(EXIT_FAILURE);
-            }
-        }
+	token = strtok(line, " \t\r\n\a");
+	while (token != NULL)
+	{
+		tokens[position] = token;
+		position++;
 
-        token = strtok(NULL, " \t\r\n\a");
-    }
-    tokens[position] = NULL;
-    return tokens;
+		if (position >= bufsize)
+		{
+			bufsize += 64;
+			tokens_backup = tokens;
+			tokens = realloc(tokens, bufsize * sizeof(char *));
+			if (!tokens)
+			{
+				free(tokens_backup);
+				perror("allocation error");
+				exit(EXIT_FAILURE);
+			}
+		}
+
+		token = strtok(NULL, " \t\r\n\a");
+	}
+	tokens[position] = NULL;
+	return tokens;
 }
+

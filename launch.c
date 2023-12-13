@@ -1,9 +1,10 @@
-#include shell.h
+#include "shell.h"
+
 /**
- * launch - launches a program and waits for it to terminate
- * @args: null terminated list of arguments (including program)
+ * launch - executes the program by creating a new process
+ * @args: array of arguments. The first one is the program to execute
  *
- * Return: 1 to continue execution
+ * Return: 1 to continue execution, -1 on error
  */
 int launch(char **args)
 {
@@ -14,16 +15,17 @@ int launch(char **args)
 	if (pid == 0)
 	{
 		/* Child process */
-		if (execve(args[0], args, NULL) == -1)
+		if (execve(args[0], args, environ) == -1)
 		{
 			perror("Error");
+			exit(EXIT_FAILURE);
 		}
-		exit(EXIT_FAILURE);
 	}
 	else if (pid < 0)
 	{
 		/* Error forking */
 		perror("Error");
+		return (-1);
 	}
 	else
 	{

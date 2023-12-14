@@ -2,13 +2,11 @@
 
 /**
  * main - Entry point for the simple shell program
- * @argc: The count of arguments supplied to the program
- * @argv: An array of pointers to the arguments
  * @env: An array of pointers to the environment variables
  *
  * Return: Always 0 (Success)
  */
-int main(int argc, char **argv, char **env)
+int main(int __attribute__((unused)) argc, char __attribute__((unused)) **argv, char **env)
 {
 char *line = NULL;
 char **args = NULL;
@@ -43,3 +41,4 @@ free(line);
 
 return (EXIT_SUCCESS);
 }
+

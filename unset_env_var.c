@@ -39,21 +39,6 @@ return (0);
 }
 
 /**
- * _strlen - Calculate the length of a string
- * @s: String to measure
- *
- * Return: Length of the string
- */
-int _strlen(char *s)
-{
-int len = 0;
-
-while (s[len])
-len++;
-return (len);
-}
-
-/**
  * _strncmp - Compare two strings up to n bytes
  * @s1: First string
  * @s2: Second string

@@ -24,8 +24,8 @@ int launch(char **args);
 
 /* Function Prototypes for built-in shell commands */
 int builtin_cd(char **args);
-/*static int change_directory(char *dir);
-static char *get_target_directory(char **args);*/
+/*static int change_directory(char *dir);*/
+/*static char *get_target_directory(char **args);*/
 int builtin_help(char **args);
 int builtin_exit(char **args);
 int builtin_env(char **args);

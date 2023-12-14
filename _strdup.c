@@ -6,7 +6,8 @@
  * _strdup - creates a duplicate of the string str.
  * @str: the string to duplicate
  * 
- * Return: a pointer to the duplicated string or NULL if insufficient memory was available
+ * Return: a pointer to the duplicated string 
+ * or NULL if insufficient memory was available
  */
 char *_strdup(const char *str)
 {
@@ -14,7 +15,7 @@ char *duplicate;
 size_t len;
 
 if (!str)
-return NULL;
+return (NULL);
 
 len = strlen(str) + 1;
 duplicate = malloc(len);

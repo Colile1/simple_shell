@@ -28,7 +28,8 @@ _strcat(variable, value);
 
 for (i = 0; environ[i]; i++)
 {
-if (_strncmp(environ[i], name, _strlen(name)) == 0 && environ[i][_strlen(name)] == '=')
+if (_strncmp(environ[i], name,
+_strlen(name)) == 0 && environ[i][_strlen(name)] == '=')
 {
 free(environ[i]);
 environ[i] = variable;

@@ -3,10 +3,14 @@
 /**
  * main - Entry point for the simple shell program
  * @env: An array of pointers to the environment variables
- *
+ * @argc: Counts the number of arguments
+ * @argv: An array of pointers to the arguments
+ * 
  * Return: Always 0 (Success)
  */
-int main(int __attribute__((unused)) argc, char __attribute__((unused)) **argv, char **env)
+
+int main(int __attribute__((unused)) argc, 
+char __attribute__((unused)) **argv, char **env)
 {
 char *line = NULL;
 char **args = NULL;

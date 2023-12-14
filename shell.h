@@ -24,17 +24,32 @@ int launch(char **args);
 
 /* Function Prototypes for built-in shell commands */
 int builtin_cd(char **args);
-static int change_directory(char *dir);
-static char *get_target_directory(char **args);
-
+/*static int change_directory(char *dir);
+static char *get_target_directory(char **args);*/
 int builtin_help(char **args);
 int builtin_exit(char **args);
 int builtin_env(char **args);
+int _strlen(char *s);
+int _strncmp(char *s1, char *s2, size_t n);
+int _strcmp(char *s1, char *s2);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_getenv(char *name);
+char *_strcpy(char *dest, const char *src);
+char *_strcat(char *dest, const char *src);
+
+
+int _putchar(char c);
+int _puts(char *str);
+char *_strdup(const char *str);
+char *_strtok(char *str, const char *delim);
+
 int is_builtin(char *command);
 int handle_builtin(char **args);
 
 /* Function Prototypes for environment variables */
 void environment_init(char **env);
+char **duplicate_environment(char **env, int count);
+
 int set_env_var(char *name, char *value);
 int unset_env_var(char *name);
 
@@ -43,5 +58,7 @@ int _atoi(char *str);
 void handle_end_of_file(char *line);
 char *get_command_path(char *command);
 void free_args(char **args);
+
+int main(int argc, char **argv, char **env);
 
 #endif

@@ -12,6 +12,7 @@ int set_env_var(char *name, char *value)
 int i;
 char *variable;
 size_t len;
+char **new_environ;
 
 if (!name || !value)
 return (-1);
@@ -27,8 +28,7 @@ _strcat(variable, value);
 
 for (i = 0; environ[i]; i++)
 {
-if (_strncmp(environ[i], name, 
-_strlen(name)) == 0 && environ[i][_strlen(name)] == '=')
+if (_strncmp(environ[i], name, _strlen(name)) == 0 && environ[i][_strlen(name)] == '=')
 {
 free(environ[i]);
 environ[i] = variable;
@@ -36,13 +36,14 @@ return (1);
 }
 }
 
-environ = _realloc(environ, sizeof(char *) * (i + 2));
-if (!environ)
+new_environ = _realloc(environ, i * sizeof(char *), (i + 2) * sizeof(char *));
+if (!new_environ)
 {
 free(variable);
 return (-1);
 }
 
+environ = new_environ;
 environ[i] = variable;
 environ[i + 1] = NULL;
 

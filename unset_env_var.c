@@ -44,7 +44,7 @@ return (0);
  *
  * Return: Length of the string
  */
-static int _strlen(char *s)
+int _strlen(char *s)
 {
 int len = 0;
 
@@ -61,7 +61,7 @@ return (len);
  *
  * Return: 0 if same, else difference between the bytes
  */
-static int _strncmp(char *s1, char *s2, size_t n)
+int _strncmp(char *s1, char *s2, size_t n)
 {
 size_t i;
 

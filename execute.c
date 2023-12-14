@@ -1,4 +1,5 @@
-#include shell.h
+#include "shell.h"
+#include <stddef.h>
 
 /**
  * execute - Executes a command

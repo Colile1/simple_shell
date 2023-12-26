@@ -1,0 +1,7 @@
+int unset_alias(info_t *info, char *str)
+int set_alias(info_t *info, char *str)
+int print_alias(list_t *node)
+int _myalias(info_t *info)
+
+int _alias(info_t *, char *, char action)
+int _myalias(info_t *info)

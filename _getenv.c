@@ -1,32 +1,23 @@
 #include "shell.h"
 
 /**
- * _getenv - Gets the value of an environment variable
- * @name: The name of the environment variable to find
+ * _getenv - gets the value of an environment variable
+ * @info: Struct with possible args.
+ * @name: environment variable name
  *
- * Description: Looks for the environment variable and returns
- * its value, if found. Otherwise, returns NULL.
- *
- * Return: Pointer to the value in the environment, or NULL if not found
+ * Return: the value
  */
-char *_getenv(char *name)
+char *_getenv(info_t *info, const char *name)
 {
-int i, len;
-char *env_value;
+list_t *node = info->env;
+char *p;
 
-if (name == NULL)
-return (NULL);
-
-len = _strlen((char *)name);
-
-for (i = 0; environ[i] != NULL; i++)
+while (node)
 {
-if (_strncmp(environ[i], name, len) == 0 && environ[i][len] == '=')
-{
-env_value = environ[i] + len + 1;
-return (env_value);
+p = starts_with(node->str, name);
+if (p && *p)
+return (p);
+node = node->next;
 }
-}
-
 return (NULL);
 }

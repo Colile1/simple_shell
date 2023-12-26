@@ -147,7 +147,6 @@ char *_strchr(char *, char);
 
 int _myhistory(info_t *);
 int _myalias(info_t *);
-
 int _myexit(info_t *);
 int _mycd(info_t *);
 int _myhelp(info_t *);
@@ -158,7 +157,6 @@ char **strtow2(char *, char);
 void *_realloc(void *, unsigned int, unsigned int);
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
-
 
 ssize_t input_buf(info_t *, char **, size_t *);
 int bfree(void **);
@@ -175,7 +173,7 @@ int print_d(int, int);
 void remove_comments(char *);
 
 
-
+ssize_t read_buf(info_t *, char *, size_t *);
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);

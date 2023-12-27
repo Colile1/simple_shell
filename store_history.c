@@ -2,9 +2,9 @@
 
 /**
  * store_history - writes history to an existing 
- * 			file or creates a new if file DNE 
+ *                  file or creates a new if file DNE 
  * @info: used to access information stored in 
- * 		the info_t structure
+ *          the info_t structure
  *
  * Return: 1 on success, else return -1
  */

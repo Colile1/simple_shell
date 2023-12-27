@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "AUTHORS.C": "cpp"
+        "AUTHORS.C": "cpp",
+        "store_history.C": "cpp"
     }
 }

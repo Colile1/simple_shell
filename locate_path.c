@@ -24,7 +24,6 @@ char *locate_path(info_t *info, char *pathstr, char *cmd)
 {
 int index = 0, current_position = 0;
 char *full_path;
-
 if (!pathstr)
 {
 return (NULL);
@@ -33,11 +32,8 @@ return (NULL);
 if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
 {
 if (is_executable(info, cmd))
-{
 return (cmd);
 }
-}
-
 while (1)
 {
 if (!pathstr[index] || pathstr[index] == ':')
@@ -52,24 +48,17 @@ else
 _strcat(full_path, "/");
 _strcat(full_path, cmd);
 }
-
 if (is_executable(info, full_path))
 {
 return (full_path);
 }
-
 free(full_path);
-
 if (!pathstr[index])
-{
 break;
-}
 current_position = ++index;
 }
 else
-{
 index++;
-}
 }
 return (NULL);
 }

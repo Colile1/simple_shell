@@ -1,234 +1,6 @@
 #include "shell.h" 
 
 /**
- * write_history - creates a file, or appends to an existing file
- * @info: the parameter struct
- *
- * Return: 1 on success, else -1
- */
-int write_history(info_t *info)
-{
-	ssize_t fd;
-	char *filename = get_history_file(info);
-	list_t *node = NULL;
-
-	if (!filename)
-		return (-1);
-
-	fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
-	free(filename);
-	if (fd == -1)
-		return (-1);
-	for (node = info->history; node; node = node->next)
-	{
-		_putsfd(node->str, fd);
-		_putfd('\n', fd);
-	}
-	_putfd(BUF_FLUSH, fd);
-	close(fd);
-	return (1);
-}
-
-#include "shell.h" 
-
-/**
- * read_history - reads history from file
- * @info: the parameter struct
- *
- * Return: histcount on success, 0 otherwise
- */
-int read_history(info_t *info)
-{
-	int i, last = 0, linecount = 0;
-	ssize_t fd, rdlen, fsize = 0;
-	struct stat st;
-	char *buf = NULL, *filename = get_history_file(info);
-
-	if (!filename)
-		return (0);
-
-	fd = open(filename, O_RDONLY);
-	free(filename);
-	if (fd == -1)
-		return (0);
-	if (!fstat(fd, &st))
-		fsize = st.st_size;
-	if (fsize < 2)
-		return (0);
-	buf = malloc(sizeof(char) * (fsize + 1));
-	if (!buf)
-		return (0);
-	rdlen = read(fd, buf, fsize);
-	buf[fsize] = 0;
-	if (rdlen <= 0)
-		return (free(buf), 0);
-	close(fd);
-	for (i = 0; i < fsize; i++)
-		if (buf[i] == '\n')
-		{
-			buf[i] = 0;
-			build_history_list(info, buf + last, linecount++);
-			last = i + 1;
-		}
-	if (last != i)
-		build_history_list(info, buf + last, linecount++);
-	free(buf);
-	info->histcount = linecount;
-	while (info->histcount-- >= HIST_MAX)
-		delete_node_at_index(&(info->history), 0);
-	renumber_history(info);
-	return (info->histcount);
-}
-
-#include "shell.h" 
-
-/**
- * build_history_list - adds entry to a history linked list
- * @info: Structure containing potential arguments. Used to maintain
- * @buf: buffer
- * @linecount: the history linecount, histcount
- *
- * Return: Always 0
- */
-int build_history_list(info_t *info, char *buf, int linecount)
-{
-	list_t *node = NULL;
-
-	if (info->history)
-		node = info->history;
-	add_node_end(&node, buf, linecount);
-
-	if (!info->history)
-		info->history = node;
-	return (0);
-}
-
-#include "shell.h" 
-
-/**
- * renumber_history - renumbers the history linked list after changes
- * @info: Structure containing potential arguments
- *
- * Return: the new histcount
- */
-int renumber_history(info_t *info)
-{
-	list_t *node = info->history;
-	int i = 0;
-
-	while (node)
-	{
-		node->num = i++;
-		node = node->next;
-	}
-	return (info->histcount = i);
-}
-
-
-
-#include "shell.h" 
-
-/**
- * add_node - adds a node to the start of the list
- * @head: address of pointer to head node
- * @str: str field of node
- * @num: node index used by history
- *
- * Return: size of list
- */
-list_t *add_node(list_t **head, const char *str, int num)
-{
-	list_t *new_head;
-
-	if (!head)
-		return (NULL);
-	new_head = malloc(sizeof(list_t));
-	if (!new_head)
-		return (NULL);
-	_memset((void *)new_head, 0, sizeof(list_t));
-	new_head->num = num;
-	if (str)
-	{
-		new_head->str = _strdup(str);
-		if (!new_head->str)
-		{
-			free(new_head);
-			return (NULL);
-		}
-	}
-	new_head->next = *head;
-	*head = new_head;
-	return (new_head);
-}
-
-#include "shell.h" 
-
-/**
- * add_node_end - adds a node to the end of the list
- * @head: address of pointer to head node
- * @str: str field of node
- * @num: node index used by history
- *
- * Return: size of list
- */
-list_t *add_node_end(list_t **head, const char *str, int num)
-{
-	list_t *new_node, *node;
-
-	if (!head)
-		return (NULL);
-
-	node = *head;
-	new_node = malloc(sizeof(list_t));
-	if (!new_node)
-		return (NULL);
-	_memset((void *)new_node, 0, sizeof(list_t));
-	new_node->num = num;
-	if (str)
-	{
-		new_node->str = _strdup(str);
-		if (!new_node->str)
-		{
-			free(new_node);
-			return (NULL);
-		}
-	}
-	if (node)
-	{
-		while (node->next)
-			node = node->next;
-		node->next = new_node;
-	}
-	else
-		*head = new_node;
-	return (new_node);
-}
-
-#include "shell.h" 
-
-/**
- * print_list_str - prints only the str element of a list_t linked list
- * @h: pointer to first node
- *
- * Return: size of list
- */
-size_t print_list_str(const list_t *h)
-{
-	size_t i = 0;
-
-	while (h)
-	{
-		_puts(h->str ? h->str : "(nil)");
-		_puts("\n");
-		h = h->next;
-		i++;
-	}
-	return (i);
-}
-
-#include "shell.h" 
-
-/**
  * delete_node_at_index - deletes node at given index
  * @head: address of pointer to first node
  * @index: index of node to delete
@@ -302,7 +74,7 @@ void free_list(list_t **head_ptr)
  * list_len - determines length of linked list
  * @h: pointer to first node
  *
- * Return: size of list
+ * Return: length of modified list
  */
 size_t list_len(const list_t *h)
 {
@@ -361,7 +133,7 @@ char **list_to_strings(list_t *head)
  * print_list - prints all elements of a list_t linked list
  * @h: pointer to first node
  *
- * Return: size of list
+ * Return: length of modified list
  */
 size_t print_list(const list_t *h)
 {
@@ -677,7 +449,7 @@ int shell_loop(info_t *info, char **arg_v)
 
 		free_info(info, 0);
 	}
-	write_history(info);
+	store_history(info);
 	free_info(info, 1);
 
 	if (!interactive(info) && info->status)
@@ -1103,7 +875,8 @@ char **strtow2(char *str, char d)
 
 /**
  * is_chain - test if current char in buffer is a chain delimeter
- * @info: the parameter struct
+ * @info: the  parameter used to access information stored
+ * in the info_t structure
  * @buf: the char buffer
  * @p: address of current position in buf
  *
@@ -1140,11 +913,12 @@ int is_chain(info_t *info, char *buf, size_t *p)
 
 /**
  * check_chain - checks we should continue chaining based on last status
- * @info: the parameter struct
- * @buf: the char buffer
- * @p: address of current position in buf
- * @i: starting position in buf
- * @len: length of buf
+ * @info: parameter used to access information stored
+ * in the info_t structure
+ * @buf: the character buffer
+ * @p: address of current position in buffer
+ * @i: starting position in buffer
+ * @len: length of buffer
  *
  * Return: Void
  */
@@ -1176,7 +950,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 
 /**
  * replace_alias - replaces an aliases in the tokenized string
- * @info: the parameter struct
+ * @info: the  parameter used to access information stored in the info_t structure
  *
  * Return: 1 if replaced, 0 otherwise
  */
@@ -1207,7 +981,8 @@ int replace_alias(info_t *info)
 
 /**
  * replace_vars - replaces vars in the tokenized string
- * @info: the parameter struct
+ * @info: parameter used to access information stored 
+ * in the info_t structure
  *
  * Return: 1 if replaced, 0 otherwise
  */

@@ -1,20 +1,24 @@
 #include "shell.h" 
 
 /**
- * locate_path - Locates the full path of a command if present in the PATH environment variable.
- * @info: Pointer to the info structure which may contain other relevant information.
+ * locate_path - Locates the full path of a command if present
+ *  in the PATH environment variable.
+ * @info: Pointer to the info structure which may contain other 
+ * relevant information.
  * @pathstr: The string containing the PATH environment variable.
  * @cmd: The command for which to find the full path.
  *
- * Description: This function searches for the full path of the specified command by looking
- * through each directory listed in the PATH environment variable. If the command
- * starts with "./", it checks whether the command is executable in the current
- * directory. Otherwise, it concatenates the command with each directory in PATH
- * until it finds an executable match. The search ends when an executable path
- * is found or when all directories have been checked.
+ * Description: This function searches for the full path of the 
+ * specified command by looking through each directory listed in
+ * the PATH environment variable. If the command starts with "./",
+ * it checks whether the command is executable in the current
+ * directory. Otherwise, it concatenates the command with each 
+ * directory in PATH until it finds an executable match. The search
+ * ends when an executable path is found or when all directories
+ * have been checked.
  *
- * Return: A pointer to a string containing the full path of the command if found,
- * or NULL if the command cannot be located or is not executable.
+ * Return: A pointer to a string containing the full path of the command 
+ * if found, or NULL if the command cannot be located or is not executable.
  */
 char *locate_path(info_t *info, char *pathstr, char *cmd)
 {

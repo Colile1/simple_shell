@@ -29,11 +29,11 @@ int _myexit(info_t *info)
 }
 
 /**
- * _mycd - changes the current directory of the process
+ * _change_cd - changes the current directory of the process
  * @info: Structure with arguments to maintain constant function prototype.
  *  Return: 0
  */
-int _mycd(info_t *info)
+int _change_cd(info_t *info)
 {
 	char *s, *dir, buffer[1024];
 	int chdir_ret;

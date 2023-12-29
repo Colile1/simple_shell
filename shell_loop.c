@@ -59,11 +59,11 @@ int find_built_in(info_t *info)
 		{"exit", _myexit},
 		{"env", _myenv},
 		{"help", _myhelp},
-		{"history", _myhistory},
+		{"history", _my_history},
 		{"set_env", _myset_env},
 		{"unset_env", _myunset_env},
-		{"cd", _mycd},
-		{"alias", _myalias},
+		{"cd", _change_cd},
+		{"alias", _my_alias},
 		{NULL, NULL}
 	};
 

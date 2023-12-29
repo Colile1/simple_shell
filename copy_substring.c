@@ -6,7 +6,7 @@
  * @start: index to start copying from
  * @stop: index to stop copying
  *
- * Returns: pointer to the new buffer containing the substring
+ * Return: pointer to the new buffer containing the substring
  */
 
 char *copy_substring(char *pathstr, int start, int stop)

@@ -5,7 +5,7 @@
  * @info: info struct for parameters and return values
  * @arg_v: argument vector from main()
  *
- * Returns: 0 if successful, 1 if error, or error code
+ * Returnclear: 0 if successful, 1 if error, or error code
  */
 
 int shell_loop(info_t *info, char **arg_v)

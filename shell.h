@@ -111,6 +111,7 @@ typedef struct passinfo
  * builtin - contains a builtin command string and related function
  * @type: the builtin command string
  * @func: the function for the builtin command
+ * description - struct is a container for builtin command 
  */
 
 typedef struct builtin

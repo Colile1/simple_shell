@@ -6,8 +6,8 @@
  * @buf: Characterbuffer
  * @p: address of current position in buf
  *
- * Return: 1 if chain delimeter, else return 0 
-*/
+ * Return: 1 if chain delimeter, 0 otherwise
+ */
 int is_chain(info_t *info, char *buf, size_t *p)
 {
 	size_t j = *p;
@@ -73,8 +73,8 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
  * change_alias - replaces an aliases in the tokenized string
  * @info: the parameter struct
  *
- * Return: 1 if replaced, else return 0 
-*/
+ * Return: 1 if replaced, 0 otherwise
+ */
 int change_alias(info_t *info)
 {
 	int i;
@@ -102,8 +102,8 @@ int change_alias(info_t *info)
  * change_vars - replaces vars in the tokenized string
  * @info: the parameter struct
  *
- * Return: 1 if replaced, else return 0 
-*/
+ * Return: 1 if replaced, 0 otherwise
+ */
 int change_vars(info_t *info)
 {
 	int i = 0;
@@ -144,8 +144,8 @@ int change_vars(info_t *info)
  * @old: address of old string
  * @new: new string
  *
- * Return: 1 if replaced, else return 0 
-*/
+ * Return: 1 if replaced, 0 otherwise
+ */
 int change_string(char **old, char *new)
 {
 	free(*old);

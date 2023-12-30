@@ -228,8 +228,8 @@ ssize_t get_node_index(list_t *, list_t *);
 /* vars.c */
 int is_chain(info_t *, char *, size_t *);
 void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
+int change_alias(info_t *);
+int change_vars(info_t *);
+int change_string(char **, char *);
 
 #endif

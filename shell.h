@@ -52,7 +52,7 @@ typedef struct liststr
 
 /**
  *struct passinfo - has pseudo-arguements to pass into a function,
- *		allowing uniform prototype for function pointer struct
+ *		This allows uniform prototype for function pointer struct
  *@arg: a string generated from getline with arguements
  *@argv: an array of strings generated from arg
  *@path: a string path for the current command
@@ -171,12 +171,12 @@ int _erratoi(char *);
 void print_error(info_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
-void remove_comments(char *);
+void clear_comments(char *);
 
 /* built_in.c */
-int _myexit(info_t *);
+int _my_exit(info_t *);
 int _change_cd(info_t *);
-int _myhelp(info_t *);
+int _my_help(info_t *);
 
 /* built_in1.c */
 int _my_history(info_t *);

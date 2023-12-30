@@ -2,7 +2,7 @@
 
 /**
  * main - entry point
- * @ac: arg count
+ * @ac: argument count
  * @arg_v: arg vector
  *
  * Return: 0 on success, else return 1
@@ -37,7 +37,7 @@ int main(int ac, char **arg_v)
 		}
 		info->readfd = fd;
 	}
-	fill_up_env_list(info);
+	fill_up_enviro_list(info);
 	read_history(info);
 	hsh(info, arg_v);
 	return (EXIT_SUCCESS);

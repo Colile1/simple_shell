@@ -34,31 +34,31 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _myset_env - Initialize a new environment variable,
+ * _myset_enviro - Initialize a new environment variable,
  *             or modify an existing one
  * @info: Structure with potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: 0
  */
-int _myset_env(info_t *info)
+int _myset_enviro(info_t *info)
 {
 	if (info->argc != 3)
 	{
 		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_set_env(info, info->argv[1], info->argv[2]))
+	if (_set_enviro(info, info->argv[1], info->argv[2]))
 		return (0);
 	return (1);
 }
 
 /**
- * _myunset_env - Remove an environment variable
+ * _myunset_enviro - Remove an environment variable
  * @info: Structure with potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: 0
  */
-int _myunset_env(info_t *info)
+int _myunset_enviro(info_t *info)
 {
 	int i;
 
@@ -68,17 +68,17 @@ int _myunset_env(info_t *info)
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
-		_unset_env(info, info->argv[i]);
+		_unset_enviro(info, info->argv[i]);
 
 	return (0);
 }
 
 /**
- * fill_up_env_list - populates env linked list
+ * fill_up_enviro_list - populates env linked list
  * @info: Structure with arguments to maintain constant function prototype.
  * Return: 0
  */
-int fill_up_env_list(info_t *info)
+int fill_up_enviro_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;

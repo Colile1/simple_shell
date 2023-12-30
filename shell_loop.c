@@ -60,8 +60,8 @@ int find_built_in(info_t *info)
 		{"env", _myenv},
 		{"help", _myhelp},
 		{"history", _my_history},
-		{"set_env", _myset_env},
-		{"unset_env", _myunset_env},
+		{"set_enviro", _myset_enviro},
+		{"unset_enviro", _myunset_enviro},
 		{"cd", _change_cd},
 		{"alias", _my_alias},
 		{NULL, NULL}
@@ -138,7 +138,7 @@ void fork_cmd(info_t *info)
 	}
 	if (child_pid == 0)
 	{
-		if (execve(info->path, info->argv, get_environment(info)) == -1)
+		if (execve(info->path, info->argv, get_enviro(info)) == -1)
 		{
 			free_info(info, 1);
 			if (errno == EACCES)

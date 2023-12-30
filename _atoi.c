@@ -4,11 +4,11 @@
  * interactive - returns true if shell is interactive mode
  * @info: struct address
  *
- * Return: 1 if interactive mode, 0 otherwise
- */
+ * Return: 1 if interactive mode, else return 0
+*/
 int interactive(info_t *info)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
@@ -28,8 +28,8 @@ int is_delim(char c, char *delim)
 /**
  *_isalpha - checks for alphabetic character
  *@c: The character to input
- *Return: 1 if c is alphabetic, 0 otherwise
- */
+ *Return: 1 if c is alphabetic, else return 0
+*/
 
 int _isalpha(int c)
 {

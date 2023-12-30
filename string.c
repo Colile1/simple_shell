@@ -41,20 +41,19 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * starts_with - checks if needle starts with src_strng
+ * starts_with - checks if sub_strng starts with src_strng
  * @src_strng: string to search
- * @needle: the substring to find
+ * @sub_strng: the substring to find
  *
  * Return: address of next char of src_strng or NULL
  */
-char *starts_with(const char *src_strng, const char *needle)
+char *starts_with(const char *src_strng, const char *sub_strng)
 {
-	while (*needle)
-		if (*needle++ != *src_strng++)
-			return (NULL);
-	return ((char *)src_strng);
+while (*sub_strng)
+if (*sub_strng++ != *src_strng++)
+return (NULL);
+return ((char *)src_strng);
 }
-
 /**
  * _strcat - combines two strings
  * @dest: the destination buffer

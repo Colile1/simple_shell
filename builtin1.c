@@ -3,8 +3,7 @@
 /**
  * _my_hist - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
- * @info: Structure with potential arguments. Used to maintain
- *        constant function prototype.
+ * @info: Structure of arguments that maintain constant function prototype
  *  Return: 0
  */
 int _my_hist(info_t *info)
@@ -14,7 +13,7 @@ int _my_hist(info_t *info)
 }
 
 /**
- * uncreate_alias - sets alias to string
+ * uncreate_alias - creates an alias for a string
  * @info: structure of parameter
  * @str: the string alias
  *
@@ -37,7 +36,7 @@ int uncreate_alias(info_t *info, char *str)
 }
 
 /**
- * create_alias - sets alias to string
+ * create_alias - creates an alias for a string
  * @info: structure of parameter
  * @str: the string alias
  *

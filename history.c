@@ -26,7 +26,7 @@ char *get_hist_file(info_t *info)
 
 /**
  * write_hist - creates a file, or appends to an existing file
- * @info: the parameter struct
+ * @info: Structure of the parametre
  *
  * Return: 1 on success, else -1
  */
@@ -55,7 +55,7 @@ int write_hist(info_t *info)
 
 /**
  * read_hist - reads history from file
- * @info: the parameter struct
+ * @info: Structure of the parametre
  *
  * Return: histcount on success, else return 0
  */

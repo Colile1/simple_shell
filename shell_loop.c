@@ -81,7 +81,7 @@ int find_built_in(info_t *info)
  * find_cmd - finds a command in PATH
  * @info: the parameter & return info struct
  *
- * Return: void
+ * Return: Nothing
  */
 void find_cmd(info_t *info)
 {
@@ -123,7 +123,7 @@ void find_cmd(info_t *info)
  * fork_cmd - forks a an exec thread to run cmd
  * @info: the parameter & return info struct
  *
- * Return: void
+ * Return: Nothing
  */
 void fork_cmd(info_t *info)
 {

@@ -2,9 +2,9 @@
 
 /**
  * is_chain - test if current char in buffer is a chain delimeter
- * @info: the parameter struct
- * @buf: Characterbuffer
- * @p: address of current position in buf
+ * @info: Structure of the parametre
+ * @buf: buffer of character
+ * @p: buffer position address
  *
  * Return: 1 if chain delimeter, else return 0
  */
@@ -24,9 +24,9 @@ int is_chain(info_t *info, char *buf, size_t *p)
 		j++;
 		info->cmd_buf_type = CMD_AND;
 	}
-	else if (buf[j] == ';') /* found end of this command */
+	else if (buf[j] == ';')
 	{
-		buf[j] = 0; /* replace semicolon with null */
+		buf[j] = 0;
 		info->cmd_buf_type = CMD_CHAIN;
 	}
 	else
@@ -36,14 +36,14 @@ int is_chain(info_t *info, char *buf, size_t *p)
 }
 
 /**
- * check_chain - checks we should continue chaining based on last status
- * @info: the parameter struct
- * @buf: Characterbuffer
- * @p: address of current position in buf
- * @i: starting position in buf
- * @len: length of buf
+ * check_chain - checks if more check must continue
+ * @info: Structure of the parametre
+ * @buf: buffer of character
+ * @p: buffer position address
+ * @i: buffer starting position
+ * @len: buffer length
  *
- * Return: Void
+ * Return: Nothing
  */
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
@@ -70,8 +70,8 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 }
 
 /**
- * change_alias - replaces an aliases in the tokenized string
- * @info: the parameter struct
+ * change_alias - changes aliases to tokenized strings
+ * @info: Structure of the parametre
  *
  * Return: 1 if replaced, else return 0
  */
@@ -99,8 +99,8 @@ int change_alias(info_t *info)
 }
 
 /**
- * change_vars - replaces vars in the tokenized string
- * @info: the parameter struct
+ * change_vars - replaces variables in the tokenized string
+ * @info: Structure of the parametre
  *
  * Return: 1 if replaced, else return 0
  */
@@ -140,8 +140,8 @@ int change_vars(info_t *info)
 }
 
 /**
- * change_string - replaces string
- * @old: address of old string
+ * change_string - replaces old string with a new one
+ * @old: old string address
  * @new: new string
  *
  * Return: 1 if replaced, else return 0

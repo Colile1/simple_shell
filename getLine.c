@@ -86,7 +86,7 @@ ssize_t get_input(info_t *info)
 	}
 
 	*buf_p = buf; /* else not a chain, pass back buffer from _getline() */
-	return (r); /* return length of buffer from _getline() */
+	return (r); /* return buffer lengthfer from _getline() */
 }
 
 /**
@@ -160,7 +160,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
  * sigintHandler - blocks ctrl-C
  * @sig_num: the signal number
  *
- * Return: void
+ * Return: Nothing
  */
 void sigintHandler(__attribute__((unused))int sig_num)
 {

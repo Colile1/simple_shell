@@ -2,7 +2,7 @@
 
 /**
  *_eputs - prints an input string
- * @str: the string to be printed
+ * @str: string to print
  *
  * Return: Nothing
  */
@@ -44,7 +44,7 @@ int _eputchar(char c)
 /**
  * _putfd - writes A charactr c to given fd
  * @c: A charactr to print
- * @fd: The filedescriptor to write to
+ * @fd: File descrptor to write to
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
@@ -66,8 +66,8 @@ int _putfd(char c, int fd)
 
 /**
  *_putsfd - prints an input string
- * @str: the string to be printed
- * @fd: the filedescriptor to write to
+ * @str: string to print
+ * @fd: File descrptor to write to
  *
  * Return: the number of chars put
  */

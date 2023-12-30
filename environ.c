@@ -14,7 +14,7 @@ int _myenv(info_t *info)
 /**
  * _getenv - gets the value of an environ variable
  * @info: Structure with potential arguments
- * @name: env var name
+ * @name: environment variablable name
  *
  * Return: the value
  */
@@ -41,7 +41,7 @@ char *_getenv(info_t *info, const char *name)
  */
 int _myset_enviro(info_t *info)
 {
-	if (info->argc != 3)
+if (info->argc != 3)
 	{
 		_eputs("Incorrect number of arguements\n");
 		return (1);

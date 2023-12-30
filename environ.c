@@ -74,11 +74,11 @@ int _myunset_env(info_t *info)
 }
 
 /**
- * populate_env_list - populates env linked list
+ * fill_up_env_list - populates env linked list
  * @info: Structure with arguments to maintain constant function prototype.
  * Return: 0
  */
-int populate_env_list(info_t *info)
+int fill_up_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;

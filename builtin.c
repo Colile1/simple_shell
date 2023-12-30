@@ -8,12 +8,12 @@
  */
 int _my_exit(info_t *info)
 {
-	int exitcheck;
+	int exit_check;
 
 	if (info->argv[1])
 	{
-		exitcheck = _erratoi(info->argv[1]);
-		if (exitcheck == -1)
+		exit_check = _erratoi(info->argv[1]);
+		if (exit_check == -1)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");

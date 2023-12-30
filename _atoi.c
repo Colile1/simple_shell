@@ -4,7 +4,7 @@
  * interactive - returns true if shell is interactive mode
  * @info: address of the structure
  *
- * Return: 1 if interactive mode, 0 otherwise
+ * Return: 1 if interactive mode, else return 0
  */
 int interactive(info_t *info)
 {
@@ -28,7 +28,7 @@ int is_delim(char c, char *delim)
 /**
  *_isalpha - checks for alphabetic character
  *@c: A charactr to input
- *Return: 1 if c is alphabetic, 0 otherwise
+ *Return: 1 if c is alphabetic, else return 0
  */
 
 int _isalpha(int c)

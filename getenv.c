@@ -20,7 +20,7 @@ char **get_enviro(info_t *info)
  * _unset_enviro - Remove an environment variable
  * @info: Structure with potential arguments. Used to maintain
  *        constant function prototype.
- *  Return: 1 on delete, 0 otherwise
+ *  Return: 1 on delete, else return 0
  * @var: string environment varible property
  */
 int _unset_enviro(info_t *info, char *var)

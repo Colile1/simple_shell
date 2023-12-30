@@ -14,13 +14,13 @@ int _my_hist(info_t *info)
 }
 
 /**
- * unset_alias - sets alias to string
- * @info: parameter struct
+ * uncreate_alias - sets alias to string
+ * @info: structure of parameter
  * @str: the string alias
  *
  * Return: 0 on success, else return 1
  */
-int unset_alias(info_t *info, char *str)
+int uncreate_alias(info_t *info, char *str)
 {
 	char *p, c;
 	int ret;
@@ -37,13 +37,13 @@ int unset_alias(info_t *info, char *str)
 }
 
 /**
- * set_alias - sets alias to string
- * @info: parameter struct
+ * create_alias - sets alias to string
+ * @info: structure of parameter
  * @str: the string alias
  *
  * Return: 0 on success, else return 1
  */
-int set_alias(info_t *info, char *str)
+int create_alias(info_t *info, char *str)
 {
 	char *p;
 
@@ -51,9 +51,9 @@ int set_alias(info_t *info, char *str)
 	if (!p)
 		return (1);
 	if (!*++p)
-		return (unset_alias(info, str));
+		return (uncreate_alias(info, str));
 
-	unset_alias(info, str);
+	uncreate_alias(info, str);
 	return (add_node_end(&(info->alias), str, 0) == NULL);
 }
 
@@ -105,7 +105,7 @@ int _my_alias(info_t *info)
 	{
 		p = _strchr(info->argv[i], '=');
 		if (p)
-			set_alias(info, info->argv[i]);
+			create_alias(info, info->argv[i]);
 		else
 			print_alias(start_of_node(info->alias, info->argv[i], '='));
 	}

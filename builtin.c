@@ -2,7 +2,7 @@
 
 /**
  * _my_exit - exits the shell
- * @info: Structure with arguments to maintain constant function prototype.
+ * @info: Structure with arguments to maintains constant function prototype.
  *  Return: exits with a given exit status
  *         (0) if info.argv[0] != "exit"
  */
@@ -30,7 +30,7 @@ int _my_exit(info_t *info)
 
 /**
  * _change_cd - changes the current directory of the process
- * @info: Structure with arguments to maintain constant function prototype.
+ * @info: Structure with arguments to maintains constant function prototype.
  *  Return: 0
  */
 int _change_cd(info_t *info)
@@ -79,7 +79,7 @@ int _change_cd(info_t *info)
 
 /**
  * _my_help - changes the current directory of the process
- * @info: Structure with arguments to maintain constant function prototype.
+ * @info: Structure with arguments to maintains constant function prototype.
  *  Return: 0
  */
 int _my_help(info_t *info)

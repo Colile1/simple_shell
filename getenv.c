@@ -2,7 +2,7 @@
 
 /**
  * get_enviro - returns the string array copy of our environ
- * @info: Structure with arguments to maintain constant function prototype.
+ * @info: Structure with arguments to maintains constant function prototype.
  * Return: 0
  */
 char **get_enviro(info_t *info)
@@ -18,7 +18,7 @@ char **get_enviro(info_t *info)
 
 /**
  * _unset_enviro - Remove an environment variable
- * @info: Structure of arguments that maintain constant function prototype
+ * @info: Structure of arguments that maintains constant function prototype
  *  Return: 1 on delete, else return 0
  * @var: string environment varible property
  */
@@ -50,7 +50,7 @@ int _unset_enviro(info_t *info, char *var)
 /**
  * _set_enviro - Initialize a new environment variable,
  *             or modify an existing one
- * @info: Structure of arguments that maintain constant function prototype
+ * @info: Structure of arguments that maintains constant function prototype
  * @var: string environment varible property
  * @value: the string env var value
  *  Return: 0

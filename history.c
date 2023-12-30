@@ -104,7 +104,7 @@ int read_hist(info_t *info)
 
 /**
  * build_hist_list - adds entry to a history linked list
- * @info: Structure with potential arguments. Used to maintain
+ * @info: Structure with potential arguments. Used to maintains
  * @buf: buffer
  * @linecount: the history linecount, histcount
  *
@@ -125,7 +125,7 @@ int build_hist_list(info_t *info, char *buf, int linecount)
 
 /**
  * renumber_hist - renumbers the history linked list after changes
- * @info: Structure with potential arguments. Used to maintain
+ * @info: Structure with potential arguments. Used to maintains
  *
  * Return: the new histcount
  */

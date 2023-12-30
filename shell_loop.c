@@ -30,7 +30,7 @@ int hsh(info_t *info, char **arg_v)
 			_putchar('\n');
 		free_info(info, 0);
 	}
-	write_history(info);
+	write_hist(info);
 	free_info(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
@@ -59,7 +59,7 @@ int find_built_in(info_t *info)
 		{"exit", _my_exit},
 		{"env", _myenv},
 		{"help", _my_help},
-		{"history", _my_history},
+		{"history", _my_hist},
 		{"set_enviro", _myset_enviro},
 		{"unset_enviro", _myunset_enviro},
 		{"cd", _change_cd},

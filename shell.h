@@ -31,7 +31,7 @@
 #define USE_GETLINE 0
 #define USE_STRTOK 0
 
-#define HIST_FILE	".simple_shell_history"
+#define HIST_FILE	".simple_shell_hist"
 #define HIST_MAX	4096
 
 extern char **environ;
@@ -179,7 +179,7 @@ int _change_cd(info_t *);
 int _my_help(info_t *);
 
 /* built_in1.c */
-int _my_history(info_t *);
+int _my_hist(info_t *);
 int _my_alias(info_t *);
 
 /*getline.c */
@@ -205,11 +205,11 @@ int _unset_enviro(info_t *, char *);
 int _set_enviro(info_t *, char *, char *);
 
 /* history.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+char *get_hist_file(info_t *info);
+int write_hist(info_t *info);
+int read_hist(info_t *info);
+int build_hist_list(info_t *info, char *buf, int linecount);
+int renumber_hist(info_t *info);
 
 /* lists.c */
 list_t *add_node(list_t **, const char *, int);

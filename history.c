@@ -32,24 +32,24 @@ char *get_hist_file(info_t *info)
  */
 int write_hist(info_t *info)
 {
-	ssize_t fd;
+	ssize_t f_dscr;
 	char *filename = get_hist_file(info);
 	list_t *node = NULL;
 
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
+	f_dscr = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free(filename);
-	if (fd == -1)
+	if (f_dscr == -1)
 		return (-1);
 	for (node = info->history; node; node = node->next)
 	{
-		_putsfd(node->str, fd);
-		_putfd('\n', fd);
+		_putsf_dscr(node->str, f_dscr);
+		_putf_dscr('\n', f_dscr);
 	}
-	_putfd(BUF_FLUSH, fd);
-	close(fd);
+	_putf_dscr(BUF_FLUSH, f_dscr);
+	close(f_dscr);
 	return (1);
 }
 
@@ -62,29 +62,29 @@ int write_hist(info_t *info)
 int read_hist(info_t *info)
 {
 	int i, last = 0, linecount = 0;
-	ssize_t fd, rdlen, fsize = 0;
+	ssize_t f_dscr, rdlen, fsize = 0;
 	struct stat st;
 	char *buf = NULL, *filename = get_hist_file(info);
 
 	if (!filename)
 		return (0);
 
-	fd = open(filename, O_RDONLY);
+	f_dscr = open(filename, O_RDONLY);
 	free(filename);
-	if (fd == -1)
+	if (f_dscr == -1)
 		return (0);
-	if (!fstat(fd, &st))
+	if (!fstat(f_dscr, &st))
 		fsize = st.st_size;
 	if (fsize < 2)
 		return (0);
 	buf = malloc(sizeof(char) * (fsize + 1));
 	if (!buf)
 		return (0);
-	rdlen = read(fd, buf, fsize);
+	rdlen = read(f_dscr, buf, fsize);
 	buf[fsize] = 0;
 	if (rdlen <= 0)
 		return (free(buf), 0);
-	close(fd);
+	close(f_dscr);
 	for (i = 0; i < fsize; i++)
 		if (buf[i] == '\n')
 		{

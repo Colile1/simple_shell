@@ -42,21 +42,21 @@ int _eputchar(char c)
 }
 
 /**
- * _putfd - writes A charactr c to given fd
+ * _putf_dscr - writes A charactr c to given f_dscr
  * @c: A charactr to print
- * @fd: File descrptor to write to
+ * @f_dscr: File descrptor to write to
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putfd(char c, int fd)
+int _putf_dscr(char c, int f_dscr)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(fd, buf, i);
+		write(f_dscr, buf, i);
 		i = 0;
 	}
 	if (c != BUF_FLUSH)
@@ -65,13 +65,13 @@ int _putfd(char c, int fd)
 }
 
 /**
- *_putsfd - prints an input string
+ *_putsf_dscr - prints an input string
  * @str: string to print
- * @fd: File descrptor to write to
+ * @f_dscr: File descrptor to write to
  *
  * Return: the number of chars put
  */
-int _putsfd(char *str, int fd)
+int _putsf_dscr(char *str, int f_dscr)
 {
 	int i = 0;
 
@@ -79,7 +79,7 @@ int _putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putfd(*str++, fd);
+		i += _putf_dscr(*str++, f_dscr);
 	}
 	return (i);
 }

@@ -10,17 +10,17 @@
 int main(int ac, char **arg_v)
 {
 	info_t info[] = { INFO_INIT };
-	int fd = 2;
+	int f_dscr = 2;
 
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
-		: "=r" (fd)
-		: "r" (fd));
+		: "=r" (f_dscr)
+		: "r" (f_dscr));
 
 	if (ac == 2)
 	{
-		fd = open(arg_v[1], O_RDONLY);
-		if (fd == -1)
+		f_dscr = open(arg_v[1], O_RDONLY);
+		if (f_dscr == -1)
 		{
 			if (errno == EACCES)
 				exit(126);
@@ -35,7 +35,7 @@ int main(int ac, char **arg_v)
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = fd;
+		info->readf_dscr = f_dscr;
 	}
 	fill_up_enviro_list(info);
 	read_hist(info);

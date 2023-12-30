@@ -69,7 +69,7 @@ typedef struct liststr
  *@status: the return status of the last exec'd command
  *@cmd_buf: address of pointer towards cmd_buf, on if chaining
  *@cmd_buf_type: CMD_type ||, &&, ;
- *@readfd: the fd from which to read line input
+ *@readf_dscr: the f_dscr from which to read line input
  *@histcount: the history line number count
  */
 typedef struct passinfo
@@ -91,7 +91,7 @@ typedef struct passinfo
 
 	char **cmd_buf;
 	int cmd_buf_type;
-	int readfd;
+	int readf_dscr;
 	int histcount;
 } info_t;
 
@@ -128,8 +128,8 @@ int loophsh(char **);
 /* errors.c */
 void _eputs(char *);
 int _eputchar(char);
-int _putfd(char c, int fd);
-int _putsfd(char *str, int fd);
+int _putf_dscr(char c, int f_dscr);
+int _putsf_dscr(char *str, int f_dscr);
 
 /* string.c */
 int _strlen(char *);

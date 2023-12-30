@@ -49,17 +49,17 @@ void print_error(info_t *info, char *estr)
 /**
  * print_d - function prints a decimal (integer) number (base 10)
  * @input: the input
- * @fd: File descrptor to write to
+ * @f_dscr: File descrptor to write to
  *
  * Return: number of characters printed
  */
-int print_d(int input, int fd)
+int print_d(int input, int f_dscr)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
-	if (fd == STDERR_FILENO)
+	if (f_dscr == STDERR_FILENO)
 		__putchar = _eputchar;
 	if (input < 0)
 	{

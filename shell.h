@@ -67,7 +67,7 @@ typedef struct liststr
  *@alias: the alias node
  *@env_changed: on if environ was changed
  *@status: the return status of the last exec'd command
- *@cmd_buf: address of pointer to cmd_buf, on if chaining
+ *@cmd_buf: address of pointer towards cmd_buf, on if chaining
  *@cmd_buf_type: CMD_type ||, &&, ;
  *@readfd: the fd from which to read line input
  *@histcount: the history line number count
@@ -219,7 +219,7 @@ int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
 
 /* toem_lists1.c */
-size_t list_len(const list_t *);
+size_t len_list(const list_t *);
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 list_t *node_starts_with(list_t *, char *, char);

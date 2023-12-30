@@ -5,7 +5,7 @@
  * @dest: the destination
  * @src: the source
  *
- * Return: pointer to destination
+ * Return: pointer towards destination
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -26,7 +26,7 @@ char *_strcpy(char *dest, char *src)
  * _strdup - duplicates a string
  * @str: the string to duplicate
  *
- * Return: pointer to the duplicated string
+ * Return: pointer towards the duplicated string
  */
 char *_strdup(const char *str)
 {

@@ -81,7 +81,7 @@ ssize_t get_input(info_t *info)
 			info->cmd_buf_type = CMD_NORM;
 		}
 
-		*buf_p = p; /* pass back pointer to current command position */
+		*buf_p = p; /* pass back pointer towards current command position */
 		return (_strlen(p)); /* return length of current command */
 	}
 
@@ -112,7 +112,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 /**
  * _getline - gets the next line of input from STDIN
  * @info: parameter struct
- * @ptr: address of pointer to buffer, preallocated or NULL
+ * @ptr: address of pointer towards buffer, preallocated or NULL
  * @length: size of preallocated ptr buffer if not NULL
  *
  * Return: s

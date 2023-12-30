@@ -60,7 +60,7 @@ char *starts_with(const char *haystack, const char *needle)
  * @dest: the destination buffer
  * @src: the source buffer
  *
- * Return: pointer to destination buffer
+ * Return: pointer towards destination buffer
  */
 char *_strcat(char *dest, char *src)
 {

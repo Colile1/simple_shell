@@ -8,12 +8,12 @@
  */
 int interactive(info_t *info)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
  * is_delim - checks if character is a delimeter
- * @c: the char to check
+ * @c: A charactr to check
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */

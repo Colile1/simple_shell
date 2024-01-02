@@ -48,8 +48,8 @@ int _unset_enviro(info_t *info, char *var)
 }
 
 /**
- * _set_enviro - Initialize a new environment variable,
- *             or modify an existing one
+ * _set_enviro - initiate a new environment variable,
+ *             or change an existing one
  * @info: Structure of arguments that maintains constant function prototype
  * @var: string environment varible property
  * @value: the string env var value

@@ -34,8 +34,8 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _myset_enviro - Initialize a new environment variable,
- *             or modify an existing one
+ * _myset_enviro - initiate a new environment variable,
+ *             or change an existing one
  * @info: Structure of arguments that maintains constant function prototype
  *  Return: 0
  */
